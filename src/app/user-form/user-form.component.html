@@ -106,4 +106,33 @@
       </div>
     </div>
   </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>UserName</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Website</th>
+          <th>Company</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of users | async">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.username }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.address.street }}</td>
+          <td>{{ item.phone }}</td>
+          <td>{{ item.website }}</td>
+          <td>{{ item.company.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
