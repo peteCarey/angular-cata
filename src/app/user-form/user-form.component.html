@@ -93,4 +93,17 @@
     <br />
     <button class="btn btn-primary" (click)="submitted = false">Edit</button>
   </div>
+
+  <div>
+    <h3>Users</h3>
+    <div class="row">
+      <div class="col-sm-4" *ngFor="let item of users | async">
+        <div class="card">
+          <div class="card-body">
+            <a href="#" class="btn btn-primary">{{ item.name }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
