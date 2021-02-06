@@ -23,6 +23,7 @@
           name="name"
           #name="ngModel"
         />
+        TODO: remove this: {{ model.name }}
         <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
           Name is required
         </div>
@@ -41,16 +42,15 @@
 
       <div class="form-group">
         <label for="eMail">eMail</label>
-        <select
+        <input
+          type="text"
           class="form-control"
           id="eMail"
           required
           [(ngModel)]="model.eMail"
           name="eMail"
           #eMail="ngModel"
-        >
-          <option *ngFor="let em of eMails" [value]="em">{{ em }}</option>
-        </select>
+        />
         <div
           [hidden]="eMail.valid || eMail.pristine"
           class="alert alert-danger"
