@@ -38,8 +38,14 @@
           required
           [(ngModel)]="model.userName"
           name="userName"
+          #userName="ngModel"
         />
-        User Name is required
+        <div
+          [hidden]="userName.valid || userName.pristine"
+          class="alert alert-danger"
+        >
+          User Name is required
+        </div>
       </div>
 
       <div class="form-group">
@@ -70,8 +76,14 @@
           required
           [(ngModel)]="model.address"
           name="address"
+          #address="ngModel"
         />
-        Address is required
+        <div
+          [hidden]="address.valid || address.pristine"
+          class="alert alert-danger"
+        >
+          Address is required
+        </div>
       </div>
 
       <div class="form-group">
@@ -83,8 +95,14 @@
           required
           [(ngModel)]="model.phone"
           name="phone"
+          #phone="ngModel"
         />
-        Phone number is required
+        <div
+          [hidden]="phone.valid || phone.pristine"
+          class="alert alert-danger"
+        >
+          Phone number is required
+        </div>
       </div>
 
       <div class="form-group">
@@ -95,6 +113,7 @@
           id="Website"
           [(ngModel)]="model.website"
           name="website"
+          #website="ngModel"
         />
       </div>
 
@@ -106,6 +125,7 @@
           id="company"
           [(ngModel)]="model.company"
           name="company"
+          #company="ngModel"
         />
       </div>
 
