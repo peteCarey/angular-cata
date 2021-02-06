@@ -9,10 +9,16 @@ import { User } from '../user';
 })
 export class UserFormComponent implements OnInit {
   users;
+  data;
   constructor(private userservice: UserService) {}
   ngOnInit() {
     this.users = this.userservice.getUsers();
     console.info(this.users);
+    this.users.subscribe((res) => {
+      console.log(res);
+      this.data = res;
+      console.log(this.data);
+    });
   }
   //users = [];
   // id: any;
@@ -21,7 +27,6 @@ export class UserFormComponent implements OnInit {
   eMails = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
 
   model = new User(
-    18,
     'Dr IQ',
     this.eMails[0],
     'Chuck Overstreet',
@@ -33,9 +38,10 @@ export class UserFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    console.log(this.model);
   }
 
   newUser() {
-    this.model = new User(42, '', '', '', '', '');
+    this.model = new User('', '', '', '', '');
   }
 }
