@@ -10,8 +10,12 @@ import { User } from '../user';
 export class UserFormComponent implements OnInit {
   users;
   data;
+  // id: number;
+  lastIndex: number;
+
   constructor(private userservice: UserService) {}
   ngOnInit() {
+    this.lastIndex = 0;
     this.users = this.userservice.getUsers();
     console.info(this.users);
     this.users.subscribe((res) => {
@@ -20,28 +24,36 @@ export class UserFormComponent implements OnInit {
       console.log(this.data);
     });
   }
-  //users = [];
-  // id: any;
-  // dummy data for model and emails - need to inject a data service
-  // to get and save real data, or expose those properties as inputs and outputs.
-  eMails = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
 
-  model = new User(
-    'Dr IQ',
-    this.eMails[0],
-    'Chuck Overstreet',
-    '123456',
-    'google.co.uk'
-  );
-
+  model = new User(0, '', '', '', '', '');
   submitted = false;
+  newRow = [];
+  fullRow = [];
+  userId: string;
+  dataSize: number;
 
   onSubmit() {
     this.submitted = true;
-    console.log(this.model);
+    this.dataSize = this.data.length;
+    console.log(typeof this.model);
+    this.lastIndex = this.dataSize + 1;
+
+    this.userId = 'id: ' + this.lastIndex;
+    console.log(this.userId);
+
+    console.log(this.lastIndex);
+    this.data[this.lastIndex - 1] = this.model; //adds the new user
+
+    console.log(this.data[this.dataSize].id);
+
+    this.data[this.dataSize].id = this.lastIndex; // replace id 0 with last index
+    console.log(this.data);
+    console.log(typeof this.data);
+    console.log(this.users);
+    console.log(typeof this.users);
   }
 
   newUser() {
-    this.model = new User('', '', '', '', '');
+    this.model = new User(this.lastIndex, '', '', '', '', '');
   }
 }

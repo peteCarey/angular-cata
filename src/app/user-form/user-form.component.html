@@ -20,18 +20,18 @@
       </div>
 
       <div class="form-group">
-        <label for="userName">User Name</label>
+        <label for="username">User Name</label>
         <input
           type="text"
           class="form-control"
-          id="userName"
+          id="username"
           required
-          [(ngModel)]="model.userName"
-          name="userName"
-          #userName="ngModel"
+          [(ngModel)]="model.username"
+          name="username"
+          #username="ngModel"
         />
         <div
-          [hidden]="userName.valid || userName.pristine"
+          [hidden]="username.valid || username.pristine"
           class="alert alert-danger"
         >
           User Name is required
@@ -39,21 +39,21 @@
       </div>
 
       <div class="form-group">
-        <label for="eMail">eMail</label>
+        <label for="email">email</label>
         <input
           type="text"
           class="form-control"
-          id="eMail"
+          id="email"
           required
-          [(ngModel)]="model.eMail"
-          name="eMail"
-          #eMail="ngModel"
+          [(ngModel)]="model.email"
+          name="email"
+          #email="ngModel"
         />
         <div
-          [hidden]="eMail.valid || eMail.pristine"
+          [hidden]="email.valid || email.pristine"
           class="alert alert-danger"
         >
-          EMail is required
+          email is required
         </div>
       </div>
 
@@ -144,11 +144,15 @@
     </div>
     <div class="row">
       <div class="col-xs-3">User Name</div>
-      <div class="col-xs-9">{{ model.userName }}</div>
+      <div class="col-xs-9">{{ model.username }}</div>
     </div>
     <div class="row">
-      <div class="col-xs-3">EMail</div>
-      <div class="col-xs-9">{{ model.eMail }}</div>
+      <div class="col-xs-3">email</div>
+      <div class="col-xs-9">{{ model.email }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">address</div>
+      <div class="col-xs-9">{{ model.address }}</div>
     </div>
     <br />
     <button class="btn btn-primary" (click)="submitted = false">Edit</button>
@@ -159,10 +163,10 @@
       <thead>
         <h2>Users</h2>
         <tr>
-          <th>#</th>
+          <th>id</th>
           <th>Name</th>
           <th>UserName</th>
-          <th>Email</th>
+          <th>email</th>
           <th>Address</th>
           <th>Phone</th>
           <th>Website</th>
@@ -170,7 +174,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of users | async">
+        <tr *ngFor="let item of data">
           <td>{{ item.id }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.username }}</td>
