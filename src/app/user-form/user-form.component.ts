@@ -25,7 +25,7 @@ export class UserFormComponent implements OnInit {
     });
   }
 
-  model = new User(0, '', '', '', '', '');
+  model = new User(0, '', '', '', '', '', '', '');
   submitted = false;
   newRow = [];
   fullRow = [];
@@ -54,6 +54,6 @@ export class UserFormComponent implements OnInit {
   }
 
   newUser() {
-    this.model = new User(this.lastIndex, '', '', '', '', '');
+    this.model = new User(this.lastIndex, '', '', '', '', '', '', '');
   }
 }

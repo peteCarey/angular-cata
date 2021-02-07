@@ -6,7 +6,7 @@ export class User {
     public email: string,
     public address: string,
     public phone: string,
-    public website?: string,
-    public company?: string
+    public website: string,
+    public company: string
   ) {}
 }
