@@ -9,25 +9,41 @@ import { User } from '../user';
 })
 export class UserFormComponent implements OnInit {
   users;
+  data;
+  // id: number;
+  lastIndex: number;
+
   constructor(private userservice: UserService) {}
   ngOnInit() {
+    this.lastIndex = 0;
     this.users = this.userservice.getUsers();
-    console.info(this.users);
+    this.users.subscribe((res) => {
+      this.data = res;
+    });
   }
-  //users = [];
-  // id: any;
 
-  eMails = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
-
-  model = new User(18, 'Dr IQ', this.eMails[0], 'Chuck Overstreet');
-
+  model = new User(0, '', '', '', '', '', '', '');
   submitted = false;
+  newRow = [];
+  fullRow = [];
+  userId: string;
+  dataSize: number;
 
   onSubmit() {
     this.submitted = true;
+    this.dataSize = this.data.length;
+    this.lastIndex = this.dataSize + 1;
+    this.userId = 'id: ' + this.lastIndex;
+    this.data[this.lastIndex - 1] = this.model; //adds the new user
+    this.data[this.dataSize].id = this.lastIndex; // replace id 0 with last index
+    console.log(this.data);
   }
 
   newUser() {
-    this.model = new User(42, '', '');
+    this.model = new User(this.lastIndex, '', '', '', '', '', '', '');
+  }
+
+  editUser() {
+    // To do
   }
 }
