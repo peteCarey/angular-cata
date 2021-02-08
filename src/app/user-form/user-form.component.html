@@ -188,17 +188,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of data">
+        <tr *ngFor="let item of data" [class.selected]="item.id === selectedId">
           <td>{{ item.id }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.username }}</td>
           <td>{{ item.email }}</td>
           <!-- <td>{{ item.address.street }}</td>-->
-          <td><a>address</a></td>
+          <td><a [routerLink]="['/item', item.id]">address</a></td>
           <td>{{ item.phone }}</td>
           <td>{{ item.website }}</td>
           <!--<td>{{ item.company.name }}</td>-->
-          <td><a>company</a></td>
+          <td><a [routerLink]="['/item', item.id]">company</a></td>
         </tr>
       </tbody>
     </table>

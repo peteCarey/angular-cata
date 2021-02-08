@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
+// import { MatDialogModule } from '@angular/material/dialog';
+import { UserAddressComponent } from '../user-address/user-address.component';
 
 @Component({
   selector: 'app-user-form',
@@ -56,4 +58,19 @@ export class UserFormComponent implements OnInit {
   newUser() {
     this.model = new User(this.lastIndex, '', '', '', '', '', '', '');
   }
+
+  /* save() {
+    //const tourPackageData = this.packageForm.getRawValue();
+    const dialogRef = this.dialog.open(UserAddressComponent, {
+      height: '70%',
+      width: '30%',
+    });
+    //dialogRef.afterClosed().subscribe((result) => {
+    //if (result) {
+    //  this.tourPackageController.save(tourPackageData).subscribe((savedData: any) => {
+    //   this.packageForm.get('id').setValue(savedData.id);
+
+    // };
+    //  });
+  }*/
 }
