@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
-// import { MatDialogModule } from '@angular/material/dialog';
-import { UserAddressComponent } from '../user-address/user-address.component';
 
 @Component({
   selector: 'app-user-form',
@@ -37,20 +35,12 @@ export class UserFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.dataSize = this.data.length;
-    console.log(typeof this.model);
     this.lastIndex = this.dataSize + 1;
-
     this.userId = 'id: ' + this.lastIndex;
-    console.log(this.userId);
-
-    console.log(this.lastIndex);
     this.data[this.lastIndex - 1] = this.model; //adds the new user
-
-    console.log(this.data[this.dataSize].id);
-
     this.data[this.dataSize].id = this.lastIndex; // replace id 0 with last index
+
     console.log(this.data);
-    console.log(typeof this.data);
     console.log(this.users);
     console.log(typeof this.users);
   }
@@ -58,19 +48,4 @@ export class UserFormComponent implements OnInit {
   newUser() {
     this.model = new User(this.lastIndex, '', '', '', '', '', '', '');
   }
-
-  /* save() {
-    //const tourPackageData = this.packageForm.getRawValue();
-    const dialogRef = this.dialog.open(UserAddressComponent, {
-      height: '70%',
-      width: '30%',
-    });
-    //dialogRef.afterClosed().subscribe((result) => {
-    //if (result) {
-    //  this.tourPackageController.save(tourPackageData).subscribe((savedData: any) => {
-    //   this.packageForm.get('id').setValue(savedData.id);
-
-    // };
-    //  });
-  }*/
 }
