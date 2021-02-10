@@ -17,11 +17,9 @@ export class UserFormComponent implements OnInit {
   ngOnInit() {
     this.lastIndex = 0;
     this.users = this.userservice.getUsers();
-    console.info(this.users);
+
     this.users.subscribe((res) => {
-      console.log(res);
       this.data = res;
-      console.log(this.data);
     });
   }
 
@@ -47,10 +45,6 @@ export class UserFormComponent implements OnInit {
     console.log(this.data[this.dataSize].id);
 
     this.data[this.dataSize].id = this.lastIndex; // replace id 0 with last index
-    console.log(this.data);
-    console.log(typeof this.data);
-    console.log(this.users);
-    console.log(typeof this.users);
   }
 
   newUser() {
