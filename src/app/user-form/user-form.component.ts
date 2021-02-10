@@ -17,6 +17,7 @@ export class UserFormComponent implements OnInit {
   ngOnInit() {
     this.lastIndex = 0;
     this.users = this.userservice.getUsers();
+
     this.users.subscribe((res) => {
       this.data = res;
     });
@@ -32,18 +33,21 @@ export class UserFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.dataSize = this.data.length;
+    console.log(typeof this.model);
     this.lastIndex = this.dataSize + 1;
+
     this.userId = 'id: ' + this.lastIndex;
+    console.log(this.userId);
+
+    console.log(this.lastIndex);
     this.data[this.lastIndex - 1] = this.model; //adds the new user
+
+    console.log(this.data[this.dataSize].id);
+
     this.data[this.dataSize].id = this.lastIndex; // replace id 0 with last index
-    console.log(this.data);
   }
 
   newUser() {
     this.model = new User(this.lastIndex, '', '', '', '', '', '', '');
-  }
-
-  editUser() {
-    // To do
   }
 }

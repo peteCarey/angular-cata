@@ -1,6 +1,6 @@
 <div class="container">
   <div [hidden]="submitted">
-    <h1>User Form</h1>
+    <h1>Ceta User Form</h1>
     <form (ngSubmit)="onSubmit()" #userForm="ngForm">
       <div class="form-group">
         <label for="name">Name</label>
@@ -13,6 +13,7 @@
           name="name"
           #name="ngModel"
         />
+
         <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
           Name is required
         </div>
@@ -151,15 +152,13 @@
 
   <div [hidden]="!submitted">
     <br />
-    <button class="btn btn-primary" (click)="submitted = false; editUser()">
-      Edit
-    </button>
+    <button class="btn btn-primary" (click)="submitted = false">Edit</button>
   </div>
 
   <div class="table-responsive" [hidden]="!submitted">
     <table class="table">
       <thead>
-        <h2>Users</h2>
+        <h2>Ceta</h2>
         <tr>
           <th>id</th>
           <th>Name</th>
@@ -172,17 +171,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of data" [class.selected]="item.id === selectedId">
+        <tr *ngFor="let item of data">
           <td>{{ item.id }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.username }}</td>
           <td>{{ item.email }}</td>
           <!-- <td>{{ item.address.street }}</td>-->
-          <td><a [routerLink]="['/item', item.id]">address</a></td>
+          <td><a>address</a></td>
           <td>{{ item.phone }}</td>
           <td>{{ item.website }}</td>
           <!--<td>{{ item.company.name }}</td>-->
-          <td><a [routerLink]="['/item', item.id]">company</a></td>
+          <td><a>company</a></td>
         </tr>
       </tbody>
     </table>
