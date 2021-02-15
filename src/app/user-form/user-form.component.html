@@ -1,4 +1,5 @@
 <div class="container">
+  <router-outlet></router-outlet>
   <div [hidden]="submitted">
     <h1>Ceta User Form</h1>
     <form (ngSubmit)="onSubmit()" #userForm="ngForm">
@@ -177,11 +178,14 @@
           <td>{{ item.username }}</td>
           <td>{{ item.email }}</td>
           <!-- <td>{{ item.address.street }}</td>-->
-          <td><a routerLink="addressDetails">address</a></td>
+          <td>
+            <!-- <a routerLink="/user-address/user-address">address</a>-->
+            <a routerLink="user-address">{{ item.address.street }}</a>
+          </td>
           <td>{{ item.phone }}</td>
           <td>{{ item.website }}</td>
           <!--<td>{{ item.company.name }}</td>-->
-          <td><a routerLink="compayDetails">company</a></td>
+          <td><a routerLink="companyDetails">company</a></td>
         </tr>
       </tbody>
     </table>

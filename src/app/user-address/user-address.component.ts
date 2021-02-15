@@ -15,24 +15,29 @@ export class UserAddressComponent implements OnInit {
   users$: Observable<User>;
 
   constructor(
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private userservice: UserService
   ) {}
 
   ngOnInit() {
+    /*this.activatedRoute.paramMap
+      .subscribe(paramMap => {
+        this.
+      })
+    */
     /* this.users$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.userservice.getUser(params.get('id'))
       )
     );*/
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
 
     // this.users$ = this.userservice.getUser(id);
   }
 
   gotoUsers(item: User) {
     const userId = item ? item.id : null;
-    this.router.navigate(['/users', { id: item }]);
+    this.router.navigate(['/user-form', { id: item }]);
   }
 }

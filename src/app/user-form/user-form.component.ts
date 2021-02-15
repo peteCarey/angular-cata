@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
-
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+// import { UserAddress } from '../user-address/user-address.component';
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
@@ -13,7 +14,12 @@ export class UserFormComponent implements OnInit {
   // id: number;
   lastIndex: number;
 
-  constructor(private userservice: UserService) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private userservice: UserService
+  ) {}
+
   ngOnInit() {
     this.lastIndex = 0;
     this.users = this.userservice.getUsers();

@@ -1,12 +1,15 @@
 <h2>Users</h2>
-<div *ngIf="users$ | async as user">
-  <h3>"{{ user.name }}"</h3>
-  <div><label>Id: </label>{{ user.id }}</div>
-  <div>
-    <label>Name: </label>
-    <input [(ngModel)]="user.name" placeholder="name" />
-  </div>
-  <p>
-    <button (click)="gotoUsers(user)">Back</button>
-  </p>
-</div>
+
+<!-- <div *ngIf="users$ | async as user">-->
+<tr *ngFor="let item of data">
+  <td>"{{ item.name }}"</td>
+  <td>{{ item.address.street }}</td>
+  <!--<td>{{ item.company.name }}</td>
+          <td><a routerLink="companyDetails">company</a></td>-->
+</tr>
+
+<p>
+  <!-- <button (click)="gotoUsers(user.id)">Back</button>-->
+  <button mat-raised-button color="accent" routerlink="/user-form">Back</button>
+</p>
+<!--</div>-->
