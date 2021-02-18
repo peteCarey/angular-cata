@@ -1,15 +1,44 @@
 <h2>Users</h2>
 
 <!-- <div *ngIf="users$ | async as user">-->
-<tr *ngFor="let item of data">
-  <td>"{{ item.name }}"</td>
-  <td>{{ item.address.street }}</td>
-  <!--<td>{{ item.company.name }}</td>
+<table>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td>Id{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.username }}</td>
+      <td>{{ item.email }}</td>
+      <!-- <td>{{ item.suite.suite }}</td>-->
+      <td>
+        <!-- <a routerLink="/user-suite/user-suite">suite</a>-->
+        <a routerLink="user-suite">{{ item.suite.street }}</a>
+      </td>
+      <td>{{ item.phone }}</td>
+      <td>{{ item.website }}</td>
+      <!--<td>{{ item.company.name }}</td>-->
+      <td><a routerLink="companyDetails">company</a></td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <tr *ngFor="let item of data">
+    <td>name "{{ item.name }}"</td>
+    <td>street {{ item.address.street }}</td>
+    <!--<td>{{ item.company.name }}</td>
           <td><a routerLink="companyDetails">company</a></td>-->
-</tr>
+  </tr>
+</table>
 
-<p>
-  <!-- <button (click)="gotoUsers(user.id)">Back</button>-->
-  <button mat-raised-button color="accent" routerlink="/user-form">Back</button>
-</p>
+<nav><button (click)="gotoUsers()">Go to Users</button></nav>
+<nav>
+  <button
+    (click)="back()"
+    mat-raised-button
+    color="accent"
+    routerlink="/user-form"
+  >
+    Back
+  </button>
+</nav>
+
 <!--</div>-->

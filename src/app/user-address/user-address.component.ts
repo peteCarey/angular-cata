@@ -13,6 +13,8 @@ import { User } from '../user';
 })
 export class UserAddressComponent implements OnInit {
   users$: Observable<User>;
+  users;
+  data;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -21,6 +23,11 @@ export class UserAddressComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.users = this.userservice.getUsers();
+
+    this.users.subscribe((res) => {
+      this.data = res;
+    });
     /*this.activatedRoute.paramMap
       .subscribe(paramMap => {
         this.
@@ -35,9 +42,16 @@ export class UserAddressComponent implements OnInit {
 
     // this.users$ = this.userservice.getUser(id);
   }
-
+  /*
   gotoUsers(item: User) {
     const userId = item ? item.id : null;
     this.router.navigate(['/user-form', { id: item }]);
+  }
+  */
+  gotoUsers() {
+    this.router.navigate(['/']);
+  }
+  back() {
+    this.router.navigate(['/']);
   }
 }

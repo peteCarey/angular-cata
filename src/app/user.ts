@@ -4,7 +4,11 @@ export class User {
     public name: string,
     public username: string,
     public email: string,
-    public address: string,
+    public street: string,
+    public suite: string,
+    public city: string,
+    public zipcode: string,
+    public geo: string,
     public phone: string,
     public website: string,
     public company: string

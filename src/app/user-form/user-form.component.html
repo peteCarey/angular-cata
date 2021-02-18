@@ -59,21 +59,91 @@
       </div>
 
       <div class="form-group">
-        <label for="address">Address</label>
+        <label for="street">Street</label>
         <input
           type="text"
           class="form-control"
-          id="address"
+          id="street"
           required
-          [(ngModel)]="model.address"
-          name="address"
-          #address="ngModel"
+          [(ngModel)]="model.street"
+          name="street"
+          #street="ngModel"
         />
         <div
-          [hidden]="address.valid || address.pristine"
+          [hidden]="street.valid || street.pristine"
           class="alert alert-danger"
         >
-          Address is required
+          Street is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="suite">Suite</label>
+        <input
+          type="text"
+          class="form-control"
+          id="suite"
+          required
+          [(ngModel)]="model.suite"
+          name="suite"
+          #suite="ngModel"
+        />
+        <div
+          [hidden]="suite.valid || suite.pristine"
+          class="alert alert-danger"
+        >
+          Street is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input
+          type="text"
+          class="form-control"
+          id="city"
+          required
+          [(ngModel)]="model.city"
+          name="city"
+          #city="ngModel"
+        />
+        <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+          Street is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="zipcode">Zipcode</label>
+        <input
+          type="text"
+          class="form-control"
+          id="zipcode"
+          required
+          [(ngModel)]="model.zipcode"
+          name="zipcode"
+          #zipcode="ngModel"
+        />
+        <div
+          [hidden]="zipcode.valid || zipcode.pristine"
+          class="alert alert-danger"
+        >
+          Street is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="geo">geo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="geo"
+          required
+          [(ngModel)]="model.geo"
+          name="geo"
+          #geo="ngModel"
+        />
+        <div [hidden]="geo.valid || geo.pristine" class="alert alert-danger">
+          gotoUsers is required
         </div>
       </div>
 
@@ -177,15 +247,17 @@
           <td>{{ item.name }}</td>
           <td>{{ item.username }}</td>
           <td>{{ item.email }}</td>
-          <!-- <td>{{ item.address.street }}</td>-->
+          <!-- <td>{{ item.suite.suite }}</td>-->
           <td>
-            <!-- <a routerLink="/user-address/user-address">address</a>-->
-            <a routerLink="user-address">{{ item.address.street }}</a>
+            <!-- <a routerLink="/user-suite/user-suite">suite</a>-->
+            <a routerLink="user-suite">{{ item.address.street }}</a>
           </td>
           <td>{{ item.phone }}</td>
           <td>{{ item.website }}</td>
           <!--<td>{{ item.company.name }}</td>-->
-          <td><a routerLink="companyDetails">company</a></td>
+          <td>
+            <a routerLink="companyDetails">{{ item.company.name }}</a>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -29,7 +29,7 @@ export class UserFormComponent implements OnInit {
     });
   }
 
-  model = new User(0, '', '', '', '', '', '', '');
+  model = new User(0, '', '', '', '', '', '', '', '', '', '', '');
   submitted = false;
   newRow = [];
   fullRow = [];
@@ -41,6 +41,7 @@ export class UserFormComponent implements OnInit {
     this.dataSize = this.data.length;
     console.log(typeof this.model);
     this.lastIndex = this.dataSize + 1;
+    console.log(this.data);
 
     this.userId = 'id: ' + this.lastIndex;
     console.log(this.userId);
@@ -54,6 +55,19 @@ export class UserFormComponent implements OnInit {
   }
 
   newUser() {
-    this.model = new User(this.lastIndex, '', '', '', '', '', '', '');
+    this.model = new User(
+      this.lastIndex,
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      ''
+    );
   }
 }
