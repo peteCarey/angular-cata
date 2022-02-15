@@ -26,6 +26,7 @@ export class UserFormComponent implements OnInit {
 
     this.users.subscribe((res) => {
       this.data = res;
+      console.log(this.data);
     });
   }
 

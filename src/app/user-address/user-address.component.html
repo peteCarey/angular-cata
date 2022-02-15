@@ -1,32 +1,17 @@
 <h2>Users</h2>
-
+<p>user-address works!</p>
 <!-- <div *ngIf="users$ | async as user">-->
 <table>
   <tbody>
     <tr *ngFor="let item of data">
-      <td>Id{{ item.id }}</td>
-      <td>{{ item.name }}</td>
-      <td>{{ item.username }}</td>
-      <td>{{ item.email }}</td>
-      <!-- <td>{{ item.suite.suite }}</td>-->
-      <td>
-        <!-- <a routerLink="/user-suite/user-suite">suite</a>-->
-        <a routerLink="user-suite">{{ item.suite.street }}</a>
-      </td>
-      <td>{{ item.phone }}</td>
-      <td>{{ item.website }}</td>
-      <!--<td>{{ item.company.name }}</td>-->
-      <td><a routerLink="companyDetails">company</a></td>
+      <td>name "{{ item.name }}"</td>
+      <td>street {{ item.address.street }}</td>
+      <td>suite {{ item.address.suite }}</td>
+      <td>suite {{ item.address.city }}</td>
+      <td>suite {{ item.address.zipcode }}</td>
+      <td>suite {{ item.address.geo }}</td>
     </tr>
   </tbody>
-</table>
-<table>
-  <tr *ngFor="let item of data">
-    <td>name "{{ item.name }}"</td>
-    <td>street {{ item.address.street }}</td>
-    <!--<td>{{ item.company.name }}</td>
-          <td><a routerLink="companyDetails">company</a></td>-->
-  </tr>
 </table>
 
 <nav><button (click)="gotoUsers()">Go to Users</button></nav>
